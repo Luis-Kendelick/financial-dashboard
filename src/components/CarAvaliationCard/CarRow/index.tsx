@@ -1,5 +1,5 @@
+import { ICar } from "models/ICar";
 import React from "react";
-import { ICar } from "../Cars";
 
 interface CarRowProps {
   className?: string;
