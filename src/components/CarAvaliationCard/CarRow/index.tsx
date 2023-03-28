@@ -33,7 +33,7 @@ const CarRow: React.FC<ICarRowProps> = ({ carInfo, className }) => {
           <p className="h-8 w-52 px-4 rounded-full flex items-center justify-center bg-ice-blue font-inter text-steel text-sm">
             Aguardando precificação
           </p>
-          <p className="font-interw-52 text-light-gray text-sm">
+          <p className="font-inter text-light-gray text-sm">
             18/04/2022 às 14:30h
           </p>
         </div>
