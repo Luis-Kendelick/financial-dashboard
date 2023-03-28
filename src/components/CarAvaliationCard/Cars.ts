@@ -1,6 +1,6 @@
-import { ICar } from "models/ICar";
+import { ICarInfos } from "models/ICar";
 
-export const cars: ICar[] = [
+export const cars: ICarInfos[] = [
     {
       "evaluation_type": "remote",
       "version_uuid": "3bfbb488-4a5c-4dba-b1ce-46003c18c3a6",
