@@ -15,7 +15,7 @@ const CarRow: React.FC<ICarRowProps> = ({ carInfo, className }) => {
             {carInfo.model_year} - {carInfo.fuel_type.toLocaleUpperCase()}
           </p>
           <p className="font-inter text-steel text-sm">
-            {carInfo.transmission_type.toLocaleUpperCase()} - {carInfo.mileage}{" "}
+            {carInfo.transmission_type.toLocaleUpperCase()} - {carInfo.mileage.toLocaleString()}{" "}
             KM
           </p>
         </div>
@@ -23,10 +23,10 @@ const CarRow: React.FC<ICarRowProps> = ({ carInfo, className }) => {
       <div className="col-span-2 border-neutral-300 h-full flex flex-col justify-between">
         <p className="font-inter text-steel text-sm">ANÚNCIO</p>
         <p className="text-dark-blue-gray font-inter font-extrabold text-base">
-          R$ {carInfo.ad_selling_price}
+          R$ {carInfo.ad_selling_price.toLocaleString()}
         </p>
         <p className="font-inter text-steel text-sm">MÍNIMO ACEITO</p>
-        <p>R$ {carInfo.ad_selling_price}</p>
+        <p>R$ {carInfo.ad_selling_price.toLocaleString()}</p>
       </div>
       <div className="col-span-3 h-full border-neutral-300">
         <div className="h-full w-max flex flex-col justify-around items-center">
