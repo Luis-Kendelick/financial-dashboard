@@ -1,13 +1,7 @@
-import React, {ComponentType} from "react";
+import { IIconComponentProps } from "models/IIcon";
+import React from "react";
 
-interface IIConProps {
-  IconComponent: ComponentType;
-  activeColor?: string;
-  className?: string;
-}
-
-const Icon: React.FC<IIConProps> = ({ IconComponent, className, activeColor }) => {
-  // return <img src={iconSrc} alt="" className={`h-full w-6 ${className}`}/>
+const Icon: React.FC<IIconComponentProps> = ({ IconComponent, className, activeColor }) => {
   return (
     <div className={`${className}`}>
       <IconComponent />

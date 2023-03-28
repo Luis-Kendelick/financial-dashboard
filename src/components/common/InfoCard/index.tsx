@@ -4,22 +4,16 @@ import { ReactComponent as PersonIcon } from "@/assets/icons/ic-person.svg";
 import { ReactComponent as ArrowUpIcon } from "@/assets/icons/ic-arrow-up.svg";
 import { ReactComponent as ArrowDownIcon } from "@/assets/icons/ic-arrow-down.svg";
 import { ReactComponent as StableIcon } from "@/assets/icons/ic-stable.svg";
-interface IInfoCard {
-  title: string;
-  value: string;
-  percentage: number;
-  icon: ComponentType;
-  className?: string;
-  avgPriceIsDropping: boolean;
-}
+import { IInfoCardProps } from "models/IInfoCard";
 
-const InfoCard: React.FC<IInfoCard> = ({
+const InfoCard: React.FC<IInfoCardProps> = ({
   title,
   value,
   percentage,
   icon,
   className,
-  avgPriceIsDropping
+  avgPriceIsDropping = false,
+  percentagePeriod
 }) => {
   return (
     <div
@@ -35,19 +29,23 @@ const InfoCard: React.FC<IInfoCard> = ({
         <div className="w-full flex items-center">
           <Icon
             IconComponent={
-              percentage > 0
-                ? ArrowUpIcon
-                : percentage === 0
+              avgPriceIsDropping
+                ? ArrowDownIcon
+                : avgPriceIsDropping === null
                 ? StableIcon
-                : ArrowDownIcon
+                : ArrowUpIcon
             }
-            className="w-5 flex"
+            className={`w-5 flex ${avgPriceIsDropping
+              ? 'fill-blood-red'
+              : avgPriceIsDropping === null
+              ? 'fill-black-87'
+              : 'fill-blue-violet'}`}
           />
           <h3 className={`font-inter font-medium text-xs ${avgPriceIsDropping ? 'text-blood-red' : 'text-blue-violet'}`}>
             {percentage}%
           </h3>
           <h3 className="ml-1 font-inter font-medium text-[10px] text-black-05">
-            desde ontem
+            {percentagePeriod}
           </h3>
         </div>
       </div>

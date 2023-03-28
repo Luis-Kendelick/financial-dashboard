@@ -1,26 +1,11 @@
 import Input from "components/common/Input";
+import { IFormInputs } from "models/IForm";
 import React from "react";
-import { FormProvider, useForm, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import { EmailValidationRegex, NameValidationRegex } from "utils/RegexPatterns";
 
-// import { Container } from './styles';
-
-interface FormInputs {
-  clientName: string;
-  clientLastName: string;
-  clientEmail: string;
-  clientPhone: string;
-  clientCep: string;
-  clientAddressLine: string;
-  clientAddressNumber: string;
-  clientAddressComplement: string;
-  clientAddresDistrict: string;
-  clientCity: string;
-  clientState: string;
-}
-
 const ClientInfoForm: React.FC = () => {
-  const formMethods = useFormContext();
+  const formMethods = useFormContext<IFormInputs>();
   const { handleSubmit } = formMethods;
 
   return (

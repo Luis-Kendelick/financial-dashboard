@@ -8,18 +8,9 @@ import {
 
 import { ErrorMessage } from "@hookform/error-message";
 import { formatarTelefone } from "utils/PhoneFormatter";
+import { IInputProps } from "models/IInput";
 
-interface InputProps {
-  placeholder: string;
-  inputName: string;
-  className?: string;
-  width?: string;
-  registerOptions?: RegisterOptions<FieldValues>;
-  insideInputHasBorder?: boolean;
-  isPhoneInput?: boolean;
-}
-
-const Input: React.FC<InputProps> = ({
+const Input: React.FC<IInputProps> = ({
   placeholder,
   inputName,
   className,

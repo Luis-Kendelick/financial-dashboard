@@ -10,29 +10,47 @@ import PieChart from "components/PieChart";
 import Icon from "components/common/Icon";
 
 const Home: React.FC = () => {
+  const avgTicket = {
+    value: 23345,
+    percentageSinceYesterday: 4,
+    isDroping: true,
+  };
+  const totalCars = {
+    value: 456,
+    percentageSinceYesterday: 4,
+    isDroping: true,
+  };
+  const totalAvaliationsToday = {
+    value: 54,
+    percentageSinceYesterday: 4,
+    isDroping: false,
+  };
   return (
     <div className="grid grid-cols-3 grid-rows-6 gap-y-7 bg-pale-gray text-black h-full w-full">
       <div className=" w-full row-span-1 col-span-3 grid grid-cols-3 gap-x-5">
         <InfoCard
           title="avaliações hoje"
-          value="29"
-          percentage={36}
+          value={totalAvaliationsToday.value.toLocaleString()}
+          percentage={totalAvaliationsToday.percentageSinceYesterday}
           icon={VehicleIcon}
-          avgPriceIsDropping={false}
+          avgPriceIsDropping={totalAvaliationsToday.isDroping}
+          percentagePeriod="desde ontem"
         />
         <InfoCard
-          title="avaliações hoje"
-          value="397"
-          percentage={4}
+          title="carros publicados"
+          value={totalCars.value.toLocaleString()}
+          percentage={totalCars.percentageSinceYesterday}
           icon={PersonIcon}
-          avgPriceIsDropping={false}
+          avgPriceIsDropping={totalCars.isDroping}
+          percentagePeriod="este mês"
         />
         <InfoCard
-          title="avaliações hoje"
-          value="29"
-          percentage={-6}
+          title="ticket médio do estoque"
+          value={`R$ ${avgTicket.value.toLocaleString()}`}
+          percentage={avgTicket.percentageSinceYesterday}
           icon={MoneyIcon}
-          avgPriceIsDropping={true}
+          avgPriceIsDropping={avgTicket.isDroping}
+          percentagePeriod="este mês"
         />
       </div>
       <div className="justify-between gap-x-5 w-full h-full row-span-5 col-span-3 grid grid-cols-3 grid-rows-6">

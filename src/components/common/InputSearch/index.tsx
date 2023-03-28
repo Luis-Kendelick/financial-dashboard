@@ -3,15 +3,9 @@ import { ReactComponent as SearchIcon } from "assets/icons/ic-search.svg";
 import Icon from "../Icon";
 import Input from "../Input";
 import { FormProvider, useForm } from "react-hook-form";
+import { IBasicInputProps } from "models/IInput";
 
-interface InputProps {
-  placeholder: string;
-  inputName: string;
-  className?: string;
-  width?: string;
-}
-
-const InputSearch: React.FC<InputProps> = ({
+const InputSearch: React.FC<IBasicInputProps> = ({
   placeholder,
   inputName,
   className,
