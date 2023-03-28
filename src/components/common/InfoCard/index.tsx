@@ -12,7 +12,8 @@ const InfoCard: React.FC<IInfoCardProps> = ({
   percentage,
   icon,
   className,
-  avgPriceIsDropping
+  avgPriceIsDropping = false,
+  percentagePeriod
 }) => {
   return (
     <div
@@ -28,19 +29,23 @@ const InfoCard: React.FC<IInfoCardProps> = ({
         <div className="w-full flex items-center">
           <Icon
             IconComponent={
-              percentage > 0
-                ? ArrowUpIcon
-                : percentage === 0
+              avgPriceIsDropping
+                ? ArrowDownIcon
+                : avgPriceIsDropping === null
                 ? StableIcon
-                : ArrowDownIcon
+                : ArrowUpIcon
             }
-            className="w-5 flex"
+            className={`w-5 flex ${avgPriceIsDropping
+              ? 'fill-blood-red'
+              : avgPriceIsDropping === null
+              ? 'fill-black-87'
+              : 'fill-blue-violet'}`}
           />
           <h3 className={`font-inter font-medium text-xs ${avgPriceIsDropping ? 'text-blood-red' : 'text-blue-violet'}`}>
             {percentage}%
           </h3>
           <h3 className="ml-1 font-inter font-medium text-[10px] text-black-05">
-            desde ontem
+            {percentagePeriod}
           </h3>
         </div>
       </div>

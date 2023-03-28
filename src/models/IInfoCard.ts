@@ -7,4 +7,5 @@ export interface IInfoCardProps {
     icon: ComponentType;
     className?: string;
     avgPriceIsDropping: boolean;
+    percentagePeriod: 'este mês' | 'desde ontem'
   }
