@@ -1,3 +1,4 @@
+import Badge from "components/common/Badge";
 import { ICarRowProps } from "models/ICar";
 import React from "react";
 
@@ -30,9 +31,7 @@ const CarRow: React.FC<ICarRowProps> = ({ carInfo, className }) => {
       </div>
       <div className="col-span-3 h-full border-neutral-300">
         <div className="h-full w-max flex flex-col justify-around items-center">
-          <p className="h-8 w-52 px-4 rounded-full flex items-center justify-center bg-ice-blue font-inter text-steel text-sm">
-            Aguardando precificação
-          </p>
+          <Badge text={'Aguardando precificação'} className={`text-steel bg-ice-blue font-inter px-6 text-sm`}/>
           <p className="font-inter text-light-gray text-sm">
             18/04/2022 às 14:30h
           </p>

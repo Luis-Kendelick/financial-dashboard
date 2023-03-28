@@ -1,5 +1,6 @@
 import { IClientListItemProps } from "models/IClient";
 import React from "react";
+import Badge from "../Badge";
 
 const ClientListItem: React.FC<IClientListItemProps> = ({
   name,
@@ -13,9 +14,7 @@ const ClientListItem: React.FC<IClientListItemProps> = ({
       <p className="text-black-87 tracking-wider font-inter font-bold text-xs col-span-5 flex items-center">
         {name}
       </p>
-      <p className="text-black-87 tracking-wider font-inter font-bold text-xs col-span-3 flex items-center">
-        {status}
-      </p>
+      <Badge text={status} className={`col-span-3 w-20 ${status.toLocaleLowerCase() === 'cliente' ? 'text-bright-blue bg-ice-blue' : 'text-brownish-gray-two bg-white-three'}`} />
       <p className="text-black-87 tracking-wider font-inter font-bold text-xs col-span-4 flex items-center">
         {phone}
       </p>
