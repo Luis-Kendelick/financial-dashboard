@@ -1,12 +1,7 @@
+import { IClientListItemProps } from "models/IClient";
 import React from "react";
-interface ClientListItemProps {
-  name: string;
-  email: string;
-  phone: string;
-  status: string;
-}
 
-const ClientListItem: React.FC<ClientListItemProps> = ({
+const ClientListItem: React.FC<IClientListItemProps> = ({
   name,
   email,
   phone,

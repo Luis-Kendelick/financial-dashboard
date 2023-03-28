@@ -4,16 +4,9 @@ import { ReactComponent as PersonIcon } from "@/assets/icons/ic-person.svg";
 import { ReactComponent as ArrowUpIcon } from "@/assets/icons/ic-arrow-up.svg";
 import { ReactComponent as ArrowDownIcon } from "@/assets/icons/ic-arrow-down.svg";
 import { ReactComponent as StableIcon } from "@/assets/icons/ic-stable.svg";
-interface IInfoCard {
-  title: string;
-  value: string;
-  percentage: number;
-  icon: ComponentType;
-  className?: string;
-  avgPriceIsDropping: boolean;
-}
+import { IInfoCardProps } from "models/IInfoCard";
 
-const InfoCard: React.FC<IInfoCard> = ({
+const InfoCard: React.FC<IInfoCardProps> = ({
   title,
   value,
   percentage,
