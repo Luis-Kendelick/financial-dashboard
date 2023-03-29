@@ -3,6 +3,12 @@ import { cars } from "./Cars";
 import CarRow from "./CarRow";
 
 const CarAvaliationCard: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const { cars, loading } = useAppSelector((state) => state.reducer.carsSlice);
+  useEffect(() => {
+    dispatch(fetchCars());
+  }, []);
+
   return (
     <div className="bg-white-two w-full h-full rounded-cards border-neutral-200 border-2 pt-6 flex flex-col">
       <div className="flex justify-between font-inter font-medium mb-[20px] pl-5 pr-8 text-black-87 text-base">
