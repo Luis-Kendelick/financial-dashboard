@@ -109,7 +109,7 @@ const Frame: React.FC = () => {
         <div className="flex flex-col h-full w-full pl-3 pr-3">
           <div className="w-14 h-14 bg-bright-blue rounded-full mt-10 flex justify-center items-center">
             <img
-              src="https://avatars.githubusercontent.com/u/54643559?v=4"
+              src="https://avatars.githubusercontent.com/u/52474261?v=4"
               alt="avatar"
               className="w-10/12 h-10/12 rounded-full border-solid border-white box-content border-2"
             />
