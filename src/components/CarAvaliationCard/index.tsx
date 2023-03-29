@@ -1,6 +1,8 @@
-import React from "react";
-import { cars } from "./Cars";
+import React, { useEffect } from "react";
 import CarRow from "./CarRow";
+import { useAppDispatch, useAppSelector } from "reducks/app/redux-hooks";
+import { fetchCars } from "reducks/features/cars/carsSlice";
+import CarRowLoader from "./CarRow/CarRowLoader";
 
 const CarAvaliationCard: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -23,9 +25,11 @@ const CarAvaliationCard: React.FC = () => {
         </div>
       </div>
       <div className="overflow-y-auto h-full scrollbar">
-        {cars.map((item, index) => (
-          <CarRow carInfo={item} key={index} />
-        ))}
+        {!loading &&
+          cars.map((item, index) => (
+            <CarRow carInfo={item} key={index} />
+          ))}
+        {loading && [...Array(6)].map(() => <CarRowLoader />)}
       </div>
     </div>
   );
