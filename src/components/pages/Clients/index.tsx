@@ -6,6 +6,7 @@ import { ReactComponent as ArrowDownIcon } from "assets/icons/ic-arrow-down.svg"
 import ClientListItem from "components/common/ClientListItem";
 import ListHeader from "./ListHeader";
 import { NavLink } from "react-router-dom";
+import { clientList } from "mocks/Clients";
 
 const Clients: React.FC = () => {
   const clientFilterOptions = [
@@ -15,140 +16,7 @@ const Clients: React.FC = () => {
     { label: "Status", value: "status" },
   ];
 
-  const clientList = [
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Cliente",
-    },
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Lead",
-    },
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Cliente",
-    },
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Lead",
-    },
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Cliente",
-    },
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Lead",
-    },
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Lead",
-    },
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Lead",
-    },
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Lead",
-    },
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Lead",
-    },
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Lead",
-    },
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Lead",
-    },
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Lead",
-    },
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Lead",
-    },
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Lead",
-    },
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Lead",
-    },
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Lead",
-    },
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Lead",
-    },
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Lead",
-    },
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Lead",
-    },
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Lead",
-    },
-    {
-      name: "João da Silva",
-      email: "",
-      phone: "(11) 99999-9999",
-      status: "Lead",
-    },
-  ];
+  
   return (
     <div className="w-full h-full flex flex-col gap-y-8">
       <div className="flex justify-between">

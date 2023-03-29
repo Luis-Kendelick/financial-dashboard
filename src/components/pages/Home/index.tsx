@@ -5,7 +5,7 @@ import { ReactComponent as PersonIcon } from "@/assets/icons/ic-devices.svg";
 import { ReactComponent as MoneyIcon } from "@/assets/icons/ic-money.svg";
 import { ReactComponent as HelpIcon } from "@/assets/icons/ic-help.svg";
 import CarAvaliationCard from "components/CarAvaliationCard";
-import { BrandsPng } from "./Brands";
+import { BrandsPng } from "../../../mocks/Brands";
 import PieChart from "components/PieChart";
 import Icon from "components/common/Icon";
 
