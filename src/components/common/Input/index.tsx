@@ -49,7 +49,7 @@ const Input: React.FC<IInputProps> = ({
             : insideInputHasBorder
             ? "border-[1px] border-solid border-neutral-300"
             : "border-0"
-        } ${className ?? ""} h-full w-full ${
+        } ${className ?? ""} w-full ${
           width ? ` w-[${width}]` : ""
         } flex flex-col justify-center rounded-cards bg-white-two relative`}
       >
