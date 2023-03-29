@@ -1,0 +1,136 @@
+import { IClientListItemProps } from "models/IClient";
+
+export const clientList: IClientListItemProps[] = [
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Cliente",
+    },
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Lead",
+    },
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Cliente",
+    },
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Lead",
+    },
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Cliente",
+    },
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Lead",
+    },
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Lead",
+    },
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Lead",
+    },
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Lead",
+    },
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Lead",
+    },
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Lead",
+    },
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Lead",
+    },
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Lead",
+    },
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Lead",
+    },
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Lead",
+    },
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Lead",
+    },
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Lead",
+    },
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Lead",
+    },
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Lead",
+    },
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Lead",
+    },
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Lead",
+    },
+    {
+      name: "João da Silva",
+      email: "",
+      phone: "(11) 99999-9999",
+      status: "Lead",
+    },
+  ];

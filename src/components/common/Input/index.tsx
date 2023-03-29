@@ -1,23 +1,25 @@
 import React from "react";
 import {
-  FieldValues,
   RegisterOptions,
-  useForm,
   useFormContext,
 } from "react-hook-form";
 
 import { ErrorMessage } from "@hookform/error-message";
-import { formatarTelefone } from "utils/PhoneFormatter";
 import { IInputProps } from "models/IInput";
+import {
+  cellphoneFormatter,
+  cepFormatter,
+  telFormatter,
+} from "utils/inputFormatters";
+import { handleKeyPressForNumberInputs, handleRegisterOptions } from "./utils";
 
 const Input: React.FC<IInputProps> = ({
   placeholder,
   inputName,
   className,
   width,
-  registerOptions,
   insideInputHasBorder = true,
-  isPhoneInput = false,
+  inputType,
 }) => {
   const formContext = useFormContext();
   const {
@@ -26,56 +28,15 @@ const Input: React.FC<IInputProps> = ({
     trigger,
   } = formContext;
 
-  const handlePhoneMask = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    const input = event.currentTarget;
-    const valorAntigo = input.value;
-    console.log("🚀 ~ file: index.tsx:41 ~ handlePhoneMask ~ valorAntigo:", valorAntigo)
-    const cursorPos = input.selectionStart ?? 0;
-  
-    // Verifica se a tecla pressionada foi o backspace e se o valorNovo atualizado
-    // ainda contém o traço na posição anterior ao cursor
-    if (
-      event.type === "deleteContentBackward" &&
-      valorAntigo[cursorPos - 1] === "-"
-    ) {
-      return;
+  const handleInputMasks = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (inputType === "cellphone") {
+      event.currentTarget.value = cellphoneFormatter(event.currentTarget.value);
     }
-  
-    // Atualiza o valor formatado com base no valor atual do input
-    const valorNovo = input.value;
-    console.log("🚀 ~ file: index.tsx:55 ~ handlePhoneMask ~ valorNovo:", valorNovo)
-    const telefoneFormatado = formatarTelefone(valorNovo);
-    console.log("🚀 ~ file: index.tsx:57 ~ handlePhoneMask ~ telefoneFormatado:", telefoneFormatado)
-  
-    event.currentTarget.value = telefoneFormatado;
-  
-    // Calcula a nova posição do cursor após a formatação
-    let newCursorPos = cursorPos;
-    if (valorNovo.length > valorAntigo.length) {
-      const diff = telefoneFormatado.length - valorAntigo.length;
-      newCursorPos += diff;
-    } else if (valorNovo.length < valorAntigo.length) {
-      const diff = valorAntigo.length - telefoneFormatado.length;
-      newCursorPos -= diff;
-  
-      // Permite a remoção do traço com as teclas de backspace e delete
-      if (
-        event.type === "deleteContentBackward" ||
-        (event.key === "Backspace" && valorAntigo[cursorPos] === "-")
-      ) {
-        input.value =
-          telefoneFormatado.substring(0, cursorPos - 1) +
-          telefoneFormatado.substring(cursorPos);
-        newCursorPos--;
-      }
+    if (inputType === "tel") {
+      event.currentTarget.value = telFormatter(event.currentTarget.value);
     }
-  
-    // Reposiciona o cursor após a formatação
-    if (newCursorPos !== cursorPos && newCursorPos >= 0) {
-      input.setSelectionRange(
-        Math.min(newCursorPos, telefoneFormatado.length),
-        Math.min(newCursorPos, telefoneFormatado.length)
-      );
+    if (inputType === "cep") {
+      event.currentTarget.value = cepFormatter(event.currentTarget.value);
     }
   };
 
@@ -88,7 +49,7 @@ const Input: React.FC<IInputProps> = ({
             : insideInputHasBorder
             ? "border-[1px] border-solid border-neutral-300"
             : "border-0"
-        } ${className ?? ""} h-full w-full ${
+        } ${className ?? ""} w-full ${
           width ? ` w-[${width}]` : ""
         } flex flex-col justify-center rounded-cards bg-white-two relative`}
       >
@@ -99,10 +60,13 @@ const Input: React.FC<IInputProps> = ({
             },
             onChange: (e) => {
               trigger(inputName);
-              isPhoneInput && handlePhoneMask(e);
+              handleInputMasks(e);
             },
-            ...registerOptions,
+            ...handleRegisterOptions(inputType ?? 'text'),
           })}
+          onKeyDown={(e) => {
+            handleKeyPressForNumberInputs(e, inputType ?? 'text');
+          }}
           className={`pl-4 mr-1 placeholder:font-inter h-full placeholder:font-medium placeholder:text-base placeholder:text-neutral-400 text-black-87 font-inter font-medium tracking-wide bg-white-two rounded-card focus:outline-none rounded-cards`}
           placeholder={placeholder}
         />

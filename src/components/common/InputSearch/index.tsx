@@ -23,6 +23,7 @@ const InputSearch: React.FC<IBasicInputProps> = ({
           placeholder={placeholder}
           inputName={inputName}
           insideInputHasBorder={false}
+          className='h-full'
         />
         <button className="h-full w-10 hover:bg-neutral-300 rounded-cards flex items-center justify-center">
           <Icon IconComponent={SearchIcon} className="fill-black-87" />

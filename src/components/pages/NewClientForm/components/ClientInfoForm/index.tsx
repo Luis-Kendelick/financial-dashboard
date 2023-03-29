@@ -1,110 +1,110 @@
+import Icon from "components/common/Icon";
 import Input from "components/common/Input";
-import { IFormInputs } from "models/IForm";
 import React from "react";
 import { useFormContext } from "react-hook-form";
-import { EmailValidationRegex, NameValidationRegex } from "utils/RegexPatterns";
+import { ReactComponent as CloseIcon } from "assets/icons/circle-x.svg";
 
 const ClientInfoForm: React.FC = () => {
-  const formMethods = useFormContext<IFormInputs>();
-  const { handleSubmit } = formMethods;
-
+  const { unregister } = useFormContext();
+  const [hasAnotherPhoneInput, setHasAnotherPhoneInput] = React.useState(false);
   return (
-    <div
-      className="w-full h-full grid grid-rows-[repeat(8,_minmax(0,_1fr))] grid-cols-4 gap-y-4 gap-x-4 px-10 pb-10 pt-8"
-    >
-      <Input
-        placeholder="Nome"
-        inputName="clientName"
-        className="col-span-1"
-        registerOptions={{
-          required: true,
-          pattern: {
-            value: NameValidationRegex,
-            message: "Comece com letra maiúscula e não use números.",
-          },
-          minLength: {
-            value: 3,
-            message: "Mínimo de 3 caracteres",
-          },
-          maxLength: {
-            value: 20,
-            message: "Máximo de 20 caracteres",
-          },
-        }}
-      />
-      <Input
-        placeholder="Sobrenome"
-        inputName="clientLastName"
-        className="col-span-1"
-        registerOptions={{
-          required: true,
-          pattern: {
-            value: NameValidationRegex,
-            message: "Comece com letra maiúscula e não use números.",
-          },
-          minLength: {
-            value: 3,
-            message: "Mínimo de 3 caracteres",
-          },
-          maxLength: {
-            value: 20,
-            message: "Máximo de 20 caracteres",
-          },
-        }}
-      />
-      <Input
-        placeholder="E-mail"
-        inputName="clientEmail"
-        className="col-span-2 row-start-2 row-end-3"
-        registerOptions={{
-          required: true,
-          pattern: {
-            value: EmailValidationRegex,
-            message: "E-mail inválido",
-          },
-        }}
-      />
-      <Input
-        placeholder="Telefone"
-        inputName="clientPhone"
-        className="row-start-3 row-end-4"
-        isPhoneInput
-      />
-      <Input
-        placeholder="CEP"
-        inputName="clientCep"
-        className="row-start-4 row-end-5"
-      />
-      <Input
-        placeholder="Endereço"
-        inputName="clientAddressLine"
-        className="col-span-2 row-start-5 row-end-6"
-      />
-      <Input
-        placeholder="Número"
-        inputName="clientAddressNumber"
-        className="row-start-6 row-end-7"
-      />
-      <Input
-        placeholder="Complemento"
-        inputName="clientAddressComplement"
-        className="row-start-6 row-end-7"
-      />
-      <Input
-        placeholder="Bairro"
-        inputName="clientAddressDistrict"
-        className="col-span-2 row-start-7 row-end-8"
-      />
-      <Input
-        placeholder="Cidade"
-        inputName="clientCity"
-        className="col-span-1 row-start-[8] row-end-[9]"
-      />
-      <Input
-        placeholder="Estado"
-        inputName="clientState"
-        className="row-start-[8] row-end-[9]"
-      />
+    <div className="w-full h-[84%] overflow-y-auto scrollbar px-10 pb-10 pt-8">
+      <div className="flex flex-wrap w-1/2 h-auto gap-y-4 justify-between">
+        <Input
+          placeholder="Nome"
+          inputName="clientName"
+          className="w-[calc(50%-0.5rem)] min-h-[4rem]"
+          inputType="name"
+        />
+        <Input
+          placeholder="Sobrenome"
+          inputName="clientLastName"
+          className="w-[calc(50%-0.5rem)] min-h-[4rem]"
+          inputType="name"
+        />
+        <Input
+          placeholder="E-mail"
+          inputName="clientEmail"
+          className="w-full min-h-[4rem]"
+          inputType="email"
+        />
+        <Input
+          placeholder="Celular"
+          inputName="clientPhone"
+          className="w-[calc(50%-0.5rem)] min-h-[4rem]"
+          inputType="cellphone"
+        />
+        {hasAnotherPhoneInput ? (
+          <div className="w-[calc(50%-0.5rem)] min-h-[4rem] relative flex items-center">
+            <Input
+              placeholder="Telefone"
+              inputName="clientFixedPhone"
+              className="w-full h-full"
+              inputType="tel"
+            />
+            <button
+              type="button"
+              onClick={() => {
+                setHasAnotherPhoneInput(false);
+                unregister("clientFixedPhone");
+              }}
+              className="h-6 w-6 absolute right-3 rounded-full"
+            >
+              <Icon IconComponent={CloseIcon} className="fill-red-600" />
+            </button>
+          </div>
+        ) : (
+          <button
+            onClick={() => setHasAnotherPhoneInput(true)}
+            type="button"
+            className="h-[4rem] flex items-center text-bright-blue text-base font-inter font-medium w-[calc(50%-0.5rem)] min-h-[4rem]"
+          >
+            + adicionar outro
+          </button>
+        )}
+        <Input
+          placeholder="CEP"
+          inputName="clientCep"
+          className="w-[calc(50%-0.5rem)] min-h-[4rem]"
+          inputType="cep"
+        />
+        <Input
+          placeholder="Endereço"
+          inputName="clientAddressLine"
+          className="w-full min-h-[4rem]"
+          inputType="address"
+        />
+        <Input
+          placeholder="Número"
+          inputName="clientAddressNumber"
+          className="w-[calc(50%-0.5rem)] min-h-[4rem]"
+          inputType="number"
+        />
+        <Input
+          placeholder="Complemento"
+          inputName="clientAddressComplement"
+          className="w-[calc(50%-0.5rem)] min-h-[4rem]"
+          inputType="text"
+        />
+        <Input
+          placeholder="Bairro"
+          inputName="clientAddressDistrict"
+          className="w-full min-h-[4rem]"
+          inputType="text"
+        />
+        <Input
+          placeholder="Cidade"
+          inputName="clientCity"
+          className="w-[calc(50%-0.5rem)] min-h-[4rem]"
+          inputType="text"
+        />
+        <Input
+          placeholder="Estado"
+          inputName="clientState"
+          className="w-[calc(50%-0.5rem)] min-h-[4rem]"
+          inputType="text"
+        />
+      </div>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import { ReactComponent as PersonIcon } from "@/assets/icons/ic-devices.svg";
 import { ReactComponent as MoneyIcon } from "@/assets/icons/ic-money.svg";
 import { ReactComponent as HelpIcon } from "@/assets/icons/ic-help.svg";
 import CarAvaliationCard from "components/CarAvaliationCard";
-import { BrandsPng } from "./Brands";
+import { BrandsPng } from "../../../mocks/Brands";
 import PieChart from "components/PieChart";
 import Icon from "components/common/Icon";
 
@@ -87,9 +87,9 @@ const Home: React.FC = () => {
               <p className="font-inter font-medium text-base">
                 Preços - Dryve x KBB
               </p>
-              <button className="w-max h-max ml-2 mb-[2px] cursor-pointer">
-                <Icon className="cursor-pointer" IconComponent={HelpIcon} />
-              </button>
+              <div className="w-max ml-[2px] fill-light-gray cursor-pointer">
+                <Icon IconComponent={HelpIcon} />
+              </div>
             </div>
             <div className="w-full h-4/5 flex items-center">
               <PieChart />
