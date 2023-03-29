@@ -3,13 +3,10 @@ import CarRow from "./CarRow";
 import { useAppDispatch, useAppSelector } from "reducks/app/redux-hooks";
 import { fetchCars } from "reducks/features/cars/carsSlice";
 import CarRowLoader from "./CarRow/CarRowLoader";
+import { useFetchCarsQuery } from "reducks/features/cars/carsApi";
 
 const CarAvaliationCard: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const { cars, loading } = useAppSelector((state) => state.reducer.carsSlice);
-  useEffect(() => {
-    dispatch(fetchCars());
-  }, []);
+  const { data, isLoading } = useFetchCarsQuery({} as any)
 
   return (
     <div className="bg-white-two w-full h-full rounded-cards border-neutral-200 border-2 pt-6 flex flex-col">
@@ -25,11 +22,11 @@ const CarAvaliationCard: React.FC = () => {
         </div>
       </div>
       <div className="overflow-y-auto h-full scrollbar">
-        {!loading &&
-          cars.map((item, index) => (
+        {!isLoading && data &&
+          data.map((item, index) => (
             <CarRow carInfo={item} key={index} />
           ))}
-        {loading && [...Array(6)].map(() => <CarRowLoader />)}
+        {isLoading && [...Array(6)].map(() => <CarRowLoader />)}
       </div>
     </div>
   );
