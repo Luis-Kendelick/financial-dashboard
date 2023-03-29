@@ -13,13 +13,13 @@ const ClientInfoForm: React.FC = () => {
         <Input
           placeholder="Nome"
           inputName="clientName"
-          className="w-[calc(50%-.5rem)] min-h-[4rem]"
+          className="w-[calc(50%-0.5rem)] min-h-[4rem]"
           inputType="name"
         />
         <Input
           placeholder="Sobrenome"
           inputName="clientLastName"
-          className="w-[calc(50%-.5rem)] min-h-[4rem]"
+          className="w-[calc(50%-0.5rem)] min-h-[4rem]"
           inputType="name"
         />
         <Input
@@ -31,11 +31,11 @@ const ClientInfoForm: React.FC = () => {
         <Input
           placeholder="Celular"
           inputName="clientPhone"
-          className="w-[calc(50%-.5rem)] min-h-[4rem]"
+          className="w-[calc(50%-0.5rem)] min-h-[4rem]"
           inputType="cellphone"
         />
         {hasAnotherPhoneInput ? (
-          <div className="w-[calc(50%-.5rem)] min-h-[4rem] relative flex items-center">
+          <div className="w-[calc(50%-0.5rem)] min-h-[4rem] relative flex items-center">
             <Input
               placeholder="Telefone"
               inputName="clientFixedPhone"
@@ -57,7 +57,7 @@ const ClientInfoForm: React.FC = () => {
           <button
             onClick={() => setHasAnotherPhoneInput(true)}
             type="button"
-            className="h-[4rem] flex items-center text-bright-blue text-base font-inter font-medium w-[calc(50%-.5rem)] min-h-[4rem]"
+            className="h-[4rem] flex items-center text-bright-blue text-base font-inter font-medium w-[calc(50%-0.5rem)] min-h-[4rem]"
           >
             + adicionar outro
           </button>
@@ -65,7 +65,7 @@ const ClientInfoForm: React.FC = () => {
         <Input
           placeholder="CEP"
           inputName="clientCep"
-          className="w-[calc(50%-.5rem)] min-h-[4rem]"
+          className="w-[calc(50%-0.5rem)] min-h-[4rem]"
           inputType="cep"
         />
         <Input
@@ -77,13 +77,13 @@ const ClientInfoForm: React.FC = () => {
         <Input
           placeholder="Número"
           inputName="clientAddressNumber"
-          className="w-[calc(50%-.5rem)] min-h-[4rem]"
+          className="w-[calc(50%-0.5rem)] min-h-[4rem]"
           inputType="number"
         />
         <Input
           placeholder="Complemento"
           inputName="clientAddressComplement"
-          className="w-[calc(50%-.5rem)] min-h-[4rem]"
+          className="w-[calc(50%-0.5rem)] min-h-[4rem]"
           inputType="text"
         />
         <Input
@@ -95,13 +95,13 @@ const ClientInfoForm: React.FC = () => {
         <Input
           placeholder="Cidade"
           inputName="clientCity"
-          className="w-[calc(50%-.5rem)] min-h-[4rem]"
+          className="w-[calc(50%-0.5rem)] min-h-[4rem]"
           inputType="text"
         />
         <Input
           placeholder="Estado"
           inputName="clientState"
-          className="w-[calc(50%-.5rem)] min-h-[4rem]"
+          className="w-[calc(50%-0.5rem)] min-h-[4rem]"
           inputType="text"
         />
       </div>
