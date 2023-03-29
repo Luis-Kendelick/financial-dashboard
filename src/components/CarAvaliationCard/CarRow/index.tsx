@@ -2,7 +2,7 @@ import Badge from "components/common/Badge";
 import { ICarRowProps } from "models/ICar";
 import React from "react";
 
-const CarRow: React.FC<ICarRowProps> = ({ carInfo, className }) => {
+const CarRow: React.FC<ICarRowProps> = ({ carInfo }) => {
   return (
     <div className="w-full h-36 grid grid-cols-10 pl-5 border-b-2 py-5 border-neutral-200 border-solid">
       <div className="col-span-5 border-neutral-300 flex items-center h-full">
