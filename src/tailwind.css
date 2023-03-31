@@ -32,4 +32,16 @@
   .fill-available {
     min-width: -webkit-fill-available;
   }
+
+  .centered-placeholder::placeholder {
+    text-align: center;
+  }
+
+  .centered-placeholder:-ms-input-placeholder {
+    text-align: center;
+  }
+
+  .centered-placeholder::-ms-input-placeholder {
+    text-align: center;
+  }
 }
