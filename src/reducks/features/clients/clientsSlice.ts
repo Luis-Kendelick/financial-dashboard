@@ -61,6 +61,12 @@ export const clientsSlice = createSlice({
 });
 
 export const {
+  changeClientsPerPage,
+  incrementPage,
+  decrementPage,
+  storeClientsList,
+  clientsToErase,
+  eraseClients,
 } = clientsSlice.actions;
 
 export default clientsSlice.reducer;
