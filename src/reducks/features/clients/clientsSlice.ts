@@ -25,6 +25,19 @@ export const clientsSlice = createSlice({
   name: "clients",
   initialState,
   reducers: {
+    changeClientsPerPage: (state, action) => {
+      state.per_page = action.payload;
+    },
+    incrementPage: (state) => {
+      if (state.current_page <= state.total_clients / state.per_page) {
+        state.current_page++;
+      }
+    },
+    decrementPage: (state) => {
+      if (state.current_page > 1) {
+        state.current_page--;
+      }
+    },
   },
 });
 
