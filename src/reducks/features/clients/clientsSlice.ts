@@ -38,6 +38,25 @@ export const clientsSlice = createSlice({
         state.current_page--;
       }
     },
+    storeClientsList: (state, action) => {
+      state.client_list = action.payload;
+      state.total_clients = action.payload.length;
+    },
+    clientsToErase: (state, action: PayloadAction<number[]>) => {
+      state.clients_to_erase = action.payload;
+    },
+    eraseClients: (state, action: PayloadAction<number[]>) => {
+      const indexes = action.payload.sort((a, b) => b - a);
+
+      const clientArray = state.client_list;
+
+      for (let i = 0; i < indexes.length; i++) {
+        clientArray.splice(indexes[i], 1);
+      }
+
+      state.client_list = clientArray;
+      state.total_clients = clientArray.length;
+    },
   },
 });
 
