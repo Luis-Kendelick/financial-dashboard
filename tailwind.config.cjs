@@ -29,7 +29,15 @@ module.exports = {
         'cards': '4px'
       },
       gridRow: {
-        'span-18': 'span 18 / span 18'
+        'span-18': 'span 18 / span 18',
+        'span-8': 'span 8 / span 8'
+      },
+      fontSize: {
+        '2xxs': '.5rem',
+        'xxs': ['.625rem', '1rem'],
+        '2xl': '1.5rem',
+        '3xl': '2rem',
+        '4xl': '3rem',
       },
     },
     screens: {
